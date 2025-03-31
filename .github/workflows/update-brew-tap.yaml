@@ -10,7 +10,7 @@ on:
         description: 'SHA256 checksum for darwin_amd64'
         required: true
       sha256sum_darwin_arm64:
-        description: 'SHA256 checksum for darwin_amd64'
+        description: 'SHA256 checksum for darwin_arm64'
         required: true
       sha256sum_linux_amd64:
         description: 'SHA256 checksum for linux_amd64'
