@@ -32,7 +32,7 @@ jobs:
               "version": "${{ github.event.inputs.VERSION }}",
               "sha256sum_darwin_amd64": "${{ github.event.inputs.sha256sum_darwin_amd64 }}",
               "sha256sum_darwin_arm64": "${{ github.event.inputs.sha256sum_darwin_arm64 }}",
-              "sha256sum_linux": "${{ github.event.inputs.sha256sum_linux_amd64 }}"
+              "sha256sum_linux_amd64": "${{ github.event.inputs.sha256sum_linux_amd64 }}"
             }
       - name: Write updated formula
         run: |
