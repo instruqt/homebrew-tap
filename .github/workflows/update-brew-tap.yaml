@@ -36,7 +36,7 @@ jobs:
             }
       - name: Write updated formula
         run: |
-          echo "${{ steps.render-template.outputs.result }}" > instruqt.rb
+          echo '${{ steps.render-template.outputs.result }}' > instruqt.rb
       - name: Commit updated formula
         uses: test-room-7/action-update-file@v1
         with:
