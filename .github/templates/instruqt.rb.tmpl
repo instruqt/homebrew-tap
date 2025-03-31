@@ -5,17 +5,17 @@ class Instruqt < Formula
 
     if OS.mac? && Hardware::CPU.intel?
         url "https://github.com/instruqt/cli/releases/download/{{version}}/instruqt-darwin-amd64.zip"
-        sha256 "{{darwin_amd64_sha256}}"
+        sha256 "{{sha256sum_darwin_amd64}}"
     end
 
     if OS.mac? && Hardware::CPU.arm?
         url "https://github.com/instruqt/cli/releases/download/{{version}}/instruqt-darwin-arm64.zip"
-        sha256 "{{darwin_arm64_sha256}}"
+        sha256 "{{sha256sum_darwin_arm64}}"
     end
 
     if OS.linux? && Hardware::CPU.intel?
         url "https://github.com/instruqt/cli/releases/download/{{version}}/instruqt-linux.zip"
-        sha256 "{{linux_amd64_sha256}}"
+        sha256 "{{sha256sum_linux_amd64}}"
     end
 
     def install
