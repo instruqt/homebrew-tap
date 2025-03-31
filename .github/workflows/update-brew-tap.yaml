@@ -1,0 +1,44 @@
+---
+name: Update Homebrew Tap
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to update to'
+        required: true
+      sha256sum_darwin_amd64:
+        description: 'SHA256 checksum for darwin_amd64'
+        required: true
+      sha256sum_darwin_arm64:
+        description: 'SHA256 checksum for darwin_amd64'
+        required: true
+      sha256sum_linux_amd64:
+        description: 'SHA256 checksum for linux_amd64'
+        required: true
+
+jobs:
+  update_tap:
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Render updated formula from template
+        id: render-template
+        uses: badsyntax/github-action-render-template@v0.0.1
+        with:
+          template: '.github/templates/instruqt.rb.tmpl'
+          inputs: |
+            {
+              "version": "${{ github.event.inputs.VERSION }}",
+              "sha256sum_darwin_amd64": "${{ github.event.inputs.sha256sum_darwin_amd64 }}",
+              "sha256sum_darwin_arm64": "${{ github.event.inputs.sha256sum_darwin_arm64 }}",
+              "sha256sum_linux": "${{ github.event.inputs.sha256sum_linux_amd64 }}"
+            }
+      - name: Write updated formula
+        run: |
+          echo "${{ steps.render-template.outputs.result }}" > instruqt.rb
+      - name: Commit updated formula
+        uses: test-room-7/action-update-file@v1
+        with:
+          file-path: instruqt.rb
+          commit-msg: Update formula for version ${{ github.event.inputs.version }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
