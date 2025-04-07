@@ -1,21 +1,21 @@
 class Instruqt < Formula
     desc "Instruqt CLI"
     homepage "https://instruqt.com"
-    version "2235-2f02e6c"
+    version "2257-66fa930"
 
     if OS.mac? && Hardware::CPU.intel?
-        url "https://github.com/instruqt/cli/releases/download/2235-2f02e6c/instruqt-darwin-amd64.zip"
-        sha256 "3044ed18f45ffb3d55f485f339978f12b6044a378aa17a4eeadd7bb81388c66d"
+        url "https://github.com/instruqt/cli/releases/download/2257-66fa930/instruqt-darwin-amd64.zip"
+        sha256 "bad651fc936b5a5b9e220811970cc8965568a743d5734418bea5344303493fae"
     end
 
     if OS.mac? && Hardware::CPU.arm?
-        url "https://github.com/instruqt/cli/releases/download/2235-2f02e6c/instruqt-darwin-arm64.zip"
-        sha256 "bf524e37db1e3e053ea345c275f5bd584857b9c97f1c38085372d5c9b1fea218"
+        url "https://github.com/instruqt/cli/releases/download/2257-66fa930/instruqt-darwin-arm64.zip"
+        sha256 "01522e78b572f376da900aabdd9dcc557e48a4cb3027b6f3f50f57e5e6d7ccdf"
     end
 
     if OS.linux? && Hardware::CPU.intel?
-        url "https://github.com/instruqt/cli/releases/download/2235-2f02e6c/instruqt-linux.zip"
-        sha256 "d03572179b56a83238794f66c47bff519715ec475f24ea271ae742beabecaae1"
+        url "https://github.com/instruqt/cli/releases/download/2257-66fa930/instruqt-linux.zip"
+        sha256 "e99f31087680c7944492cda3f30fd05cd73dc37652223895dee092560ae9cdf5"
     end
 
     def install
