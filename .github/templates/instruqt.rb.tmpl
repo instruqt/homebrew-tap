@@ -14,8 +14,13 @@ class Instruqt < Formula
     end
 
     if OS.linux? && Hardware::CPU.intel?
-        url "https://github.com/instruqt/cli/releases/download/{{version}}/instruqt-linux.zip"
+        url "https://github.com/instruqt/cli/releases/download/{{version}}/instruqt-linux-amd64.zip"
         sha256 "{{sha256sum_linux_amd64}}"
+    end
+
+    if OS.linux? && Hardware::CPU.arm?
+        url "https://github.com/instruqt/cli/releases/download/{{version}}/instruqt-linux-arm64.zip"
+        sha256 "{{sha256sum_linux_arm64}}"
     end
 
     def install
